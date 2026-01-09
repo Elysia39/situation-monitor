@@ -4904,11 +4904,48 @@
    TABLET BREAKPOINT (768px)
    ========================================== */
 @media (max-width: 768px) {
-    /* Header adjustments */
+    /* === CRITICAL: Prevent horizontal scroll === */
+    html {
+        overflow-x: hidden !important;
+    }
+
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    /* === CRITICAL: Force single column layout === */
+    .dashboard {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+    }
+
+    /* Override ALL inline grid-column styles */
+    .dashboard > * {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .panel,
+    .panel.wide,
+    section.panel,
+    .panel[data-panel="map"],
+    [style*="grid-column"] {
+        grid-column: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* === Header === */
     .header {
         padding: 0.5rem 1rem;
         position: sticky;
         top: 0;
+        z-index: 100;
     }
 
     .header-left {
@@ -4932,23 +4969,33 @@
         display: none;
     }
 
-    /* Map height reduction */
+    /* === Map Panel === */
     .panel[data-panel="map"] {
-        height: 350px !important;
+        height: 280px !important;
+        min-height: 280px !important;
+    }
+
+    .panel[data-panel="map"] .panel-content,
+    #mapPanel {
+        height: calc(100% - 44px) !important;
+        max-height: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+        position: relative !important;
     }
 
     #mapSvg {
+        width: 100% !important;
         height: 100% !important;
+        display: block !important;
+        object-fit: contain !important;
     }
 
     /* Hide map legend on mobile */
     #mapLegend {
-        display: none;
-    }
-
-    /* Panel content adjustments */
-    .panel-content {
-        max-height: 320px;
+        display: none !important;
     }
 
     /* Touch-friendly item targets */
@@ -4987,7 +5034,7 @@
         display: none;
     }
 
-    /* Settings modal improvements */
+    /* === Modals === */
     .settings-content {
         width: 95%;
         max-width: none;
@@ -5000,7 +5047,6 @@
         font-size: 0.75rem;
     }
 
-    /* Monitor form modal improvements */
     .monitor-form {
         width: 95%;
         max-width: none;
@@ -5042,13 +5088,153 @@
     /* Grid sections - single column on mobile */
     .correlation-sections,
     .narrative-sections {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 0.5rem;
     }
 
     .correlation-section-header,
     .narrative-section-header {
         padding: 0.5rem;
+    }
+
+    /* === HORIZONTAL SCROLL FOR ITEMS (condensed view) === */
+    /* Exclude map panel from horizontal scroll */
+    .panel:not([data-panel="map"]) > .panel-content {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        max-height: 180px;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Subtle scrollbar */
+    .panel:not([data-panel="map"]) > .panel-content::-webkit-scrollbar {
+        height: 3px;
+    }
+
+    .panel:not([data-panel="map"]) > .panel-content::-webkit-scrollbar-track {
+        background: var(--surface);
+    }
+
+    .panel:not([data-panel="map"]) > .panel-content::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 2px;
+    }
+
+    /* Panels are compact */
+    .panel:not([data-panel="map"]) {
+        min-height: auto !important;
+    }
+
+    /* Individual items as horizontal cards */
+    .panel:not([data-panel="map"]) .item {
+        flex: 0 0 80vw !important;
+        max-width: 80vw !important;
+        min-width: 260px;
+        scroll-snap-align: start;
+        border-right: 1px solid var(--border);
+        border-bottom: none;
+        box-sizing: border-box;
+        padding: 0.75rem 1rem;
+    }
+
+    .panel:not([data-panel="map"]) .item:last-child {
+        border-right: none;
+    }
+
+    /* Market items */
+    .market-item {
+        flex: 0 0 150px !important;
+        min-width: 150px;
+        scroll-snap-align: start;
+        border-right: 1px solid var(--border);
+        padding: 0.75rem 1rem;
+    }
+
+    /* Sector heatmap - wrapped grid */
+    #heatmapPanel {
+        flex-wrap: wrap !important;
+        justify-content: flex-start;
+        gap: 0.25rem;
+        padding: 0.5rem;
+        max-height: none !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+    #heatmapPanel .sector-item {
+        flex: 0 0 auto;
+    }
+
+    /* Polymarket items */
+    .polymarket-item {
+        flex: 0 0 80vw !important;
+        max-width: 80vw !important;
+        min-width: 260px;
+        scroll-snap-align: start;
+        border-right: 1px solid var(--border);
+        padding: 0.75rem 1rem;
+    }
+
+    /* Contract items */
+    .contract-item {
+        flex: 0 0 80vw !important;
+        max-width: 80vw !important;
+        min-width: 260px;
+        scroll-snap-align: start;
+        border-right: 1px solid var(--border);
+        padding: 0.75rem 1rem;
+    }
+
+    /* Intel items */
+    .intel-item {
+        flex: 0 0 80vw !important;
+        max-width: 80vw !important;
+        min-width: 260px;
+        scroll-snap-align: start;
+        border-right: 1px solid var(--border);
+        padding: 0.75rem 1rem;
+    }
+
+    /* Whale items */
+    .whale-item {
+        flex: 0 0 260px !important;
+        scroll-snap-align: start;
+        border-right: 1px solid var(--border);
+        padding: 0.75rem 1rem;
+    }
+
+    /* Commodities */
+    .commodity-item {
+        flex: 0 0 110px !important;
+        scroll-snap-align: start;
+    }
+
+    /* Correlation/Narrative sections */
+    .correlation-sections,
+    .narrative-sections {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0 !important;
+        padding-bottom: 0.5rem;
+    }
+
+    .correlation-section,
+    .narrative-section {
+        flex: 0 0 80vw !important;
+        max-width: 80vw !important;
+        min-width: 260px;
+        scroll-snap-align: start;
+        border-right: 1px solid var(--border);
     }
 }
 
