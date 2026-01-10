@@ -1,21 +1,6 @@
 // ServiceRegistry.js - Service configurations for all external APIs
 
 const SERVICE_CONFIG = {
-    RSS2JSON: {
-        id: 'rss2json',
-        baseUrl: 'https://api.rss2json.com',
-        timeout: 10000,
-        retries: 2,
-        cache: {
-            ttl: 5 * 60 * 1000,          // 5 minutes
-            staleWhileRevalidate: true
-        },
-        circuitBreaker: {
-            failureThreshold: 3,
-            resetTimeout: 30000           // 30 seconds
-        }
-    },
-
     GDELT: {
         id: 'gdelt',
         baseUrl: 'https://api.gdeltproject.org',
