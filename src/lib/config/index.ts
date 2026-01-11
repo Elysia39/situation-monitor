@@ -48,3 +48,24 @@ export {
 	type SourceTypes,
 	type PersonPattern
 } from './analysis';
+
+// Map configuration
+export {
+	HOTSPOTS,
+	CONFLICT_ZONES,
+	CHOKEPOINTS,
+	CABLE_LANDINGS,
+	NUCLEAR_SITES,
+	MILITARY_BASES,
+	OCEANS,
+	SANCTIONED_COUNTRY_IDS,
+	THREAT_COLORS,
+	WEATHER_CODES,
+	type Hotspot,
+	type ConflictZone,
+	type Chokepoint,
+	type CableLanding,
+	type NuclearSite,
+	type MilitaryBase,
+	type Ocean
+} from './map';
