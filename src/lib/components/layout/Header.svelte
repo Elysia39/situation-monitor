@@ -26,10 +26,7 @@
 
 <header class="header">
 	<div class="header-left">
-		<h1 class="logo">
-			SITUATION MONITOR
-			<span class="version">2.0</span>
-		</h1>
+		<h1 class="logo">SITUATION MONITOR</h1>
 	</div>
 
 	<div class="header-center">
@@ -99,14 +96,6 @@
 		display: flex;
 		align-items: baseline;
 		gap: 0.5rem;
-	}
-
-	.version {
-		font-size: 0.5rem;
-		font-weight: 500;
-		color: var(--text-muted);
-		opacity: 0.5;
-		vertical-align: super;
 	}
 
 	.header-center {
