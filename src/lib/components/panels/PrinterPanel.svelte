@@ -21,7 +21,7 @@
 
 <Panel id="printer" title="Money Printer" {status} {statusClass} {loading} {error}>
 	{#if !data && !loading && !error}
-		<div class="empty-state">No Fed data available</div>
+		<div class="empty-state">暂无美联储数据</div>
 	{:else if data}
 		<div class="printer-gauge">
 			<div class="printer-label">Federal Reserve Balance Sheet</div>

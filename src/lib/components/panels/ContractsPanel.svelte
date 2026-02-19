@@ -28,7 +28,7 @@
 
 <Panel id="contracts" title="Gov Contracts" {count} {loading} {error}>
 	{#if contracts.length === 0 && !loading && !error}
-		<div class="empty-state">No contracts available</div>
+		<div class="empty-state">暂无合约数据</div>
 	{:else}
 		<div class="contracts-list">
 			{#each contracts as contract, i (contract.vendor + i)}

@@ -15,16 +15,16 @@ export interface Preset {
 export const PRESETS: Record<string, Preset> = {
 	'news-junkie': {
 		id: 'news-junkie',
-		name: 'News Junkie',
+		name: '资讯爱好者',
 		icon: '📰',
-		description: 'Stay on top of breaking news across politics, tech, and finance',
+		description: '紧跟政治、科技与金融等领域的突发资讯',
 		panels: ['politics', 'tech', 'finance', 'gov', 'ai', 'mainchar', 'map']
 	},
 	trader: {
 		id: 'trader',
-		name: 'Trader',
+		name: '交易员',
 		icon: '📈',
-		description: 'Market-focused dashboard with stocks, crypto, and commodities',
+		description: '聚焦市场：股票、加密与大宗商品',
 		panels: [
 			'markets',
 			'heatmap',
@@ -39,9 +39,9 @@ export const PRESETS: Record<string, Preset> = {
 	},
 	geopolitics: {
 		id: 'geopolitics',
-		name: 'Geopolitics Watcher',
+		name: '地缘观察者',
 		icon: '🌍',
-		description: 'Global situation awareness and regional hotspots',
+		description: '全球态势与区域热点一览',
 		panels: [
 			'map',
 			'intel',
@@ -57,23 +57,23 @@ export const PRESETS: Record<string, Preset> = {
 	},
 	intel: {
 		id: 'intel',
-		name: 'Intelligence Analyst',
+		name: '情报分析员',
 		icon: '🔍',
-		description: 'Deep analysis, pattern detection, and narrative tracking',
+		description: '深度分析、模式检测与叙事追踪',
 		panels: ['map', 'intel', 'leaders', 'correlation', 'narrative', 'mainchar', 'politics']
 	},
 	minimal: {
 		id: 'minimal',
-		name: 'Minimal',
+		name: '极简',
 		icon: '⚡',
-		description: 'Just the essentials - map, news, and markets',
+		description: '只保留核心：地图、新闻与市场',
 		panels: ['map', 'politics', 'markets']
 	},
 	everything: {
 		id: 'everything',
-		name: 'Everything',
+		name: '全功能',
 		icon: '🎛️',
-		description: 'Kitchen sink - all panels enabled',
+		description: '功能全开：启用所有面板',
 		panels: [
 			'map',
 			'politics',

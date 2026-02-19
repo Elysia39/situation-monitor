@@ -44,7 +44,7 @@
 
 <Panel id="narrative" title="Narrative Tracker" {loading} {error}>
 	{#if news.length === 0 && !loading && !error}
-		<div class="empty-state">Insufficient data for narrative analysis</div>
+		<div class="empty-state">叙事分析数据不足</div>
 	{:else if analysis}
 		<div class="narrative-content">
 			{#if analysis.emergingFringe.length > 0}
@@ -124,11 +124,11 @@
 			{/if}
 
 			{#if analysis.emergingFringe.length === 0 && analysis.fringeToMainstream.length === 0}
-				<div class="empty-state">No significant narratives detected</div>
+				<div class="empty-state">未检测到显著叙事</div>
 			{/if}
 		</div>
 	{:else}
-		<div class="empty-state">No significant narratives detected</div>
+		<div class="empty-state">未检测到显著叙事</div>
 	{/if}
 </Panel>
 

@@ -66,7 +66,7 @@
 		</div>
 
 		{#if news.length === 0 && !loading && !error}
-			<div class="empty-state">No recent news</div>
+			<div class="empty-state">暂无最新新闻</div>
 		{:else}
 			<div class="situation-news">
 				{#each news.slice(0, 8) as item (item.id)}

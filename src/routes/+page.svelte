@@ -242,25 +242,25 @@
 
 			{#if isPanelVisible('tech')}
 				<div class="panel-slot">
-					<NewsPanel category="tech" panelId="tech" title="Tech" />
+					<NewsPanel category="tech" panelId="tech" title="科技" />
 				</div>
 			{/if}
 
 			{#if isPanelVisible('finance')}
 				<div class="panel-slot">
-					<NewsPanel category="finance" panelId="finance" title="Finance" />
+					<NewsPanel category="finance" panelId="finance" title="金融" />
 				</div>
 			{/if}
 
 			{#if isPanelVisible('gov')}
 				<div class="panel-slot">
-					<NewsPanel category="gov" panelId="gov" title="Government" />
+					<NewsPanel category="gov" panelId="gov" title="政府" />
 				</div>
 			{/if}
 
 			{#if isPanelVisible('ai')}
 				<div class="panel-slot">
-					<NewsPanel category="ai" panelId="ai" title="AI" />
+					<NewsPanel category="ai" panelId="ai" title="人工智能" />
 				</div>
 			{/if}
 
