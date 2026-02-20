@@ -17,6 +17,15 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Check Cloudflare secrets
+        run: |
+          if [ -z "${{ secrets.CF_API_TOKEN }}" ] || [ -z "${{ secrets.CF_ACCOUNT_ID }}" ]; then
+            echo "Missing Cloudflare secrets."
+            echo "Please add CF_API_TOKEN (Pages:Edit) and CF_ACCOUNT_ID in"
+            echo "GitHub → Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@v4
 

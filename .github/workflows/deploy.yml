@@ -1,8 +1,7 @@
 name: Deploy Redirect to GitHub Pages
 
 on:
-  push:
-    branches: [main]
+  # 默认不再在推送时自动运行，避免无必要失败。需要时可手动触发。
   workflow_dispatch:
 
 permissions:
